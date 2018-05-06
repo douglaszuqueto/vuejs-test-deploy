@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="collapse navbar-collapse " id="navbarNav">
+      <div class="text-center col-12" id="navbarNav">
         <ul class="navbar-nav ">
           <li class="nav-item active">
             <router-link to="/" class="nav-link text-white">Home</router-link>
