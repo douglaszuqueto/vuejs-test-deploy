@@ -8,6 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 
+if (process.env.NODE_ENV === 'production') {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((registration) => console.log(registration))
+      .catch((err) => console.log(err))
+  }
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
