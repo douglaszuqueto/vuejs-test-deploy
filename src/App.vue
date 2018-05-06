@@ -9,6 +9,9 @@
           <li class="nav-item">
             <router-link to="/share" class="nav-link text-white ">Share</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/geolocation" class="nav-link text-white ">Share</router-link>
+          </li>
         </ul>
       </div>
     </nav>
