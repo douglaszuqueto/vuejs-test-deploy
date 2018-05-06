@@ -15,7 +15,7 @@
         </ul>
       </div>
     </nav>
-    <div class="container" style="margin-top: 150px">
+    <div class="container" style="margin-top: 25px">
       <router-view/>
     </div>
   </div>
