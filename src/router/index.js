@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Share from '@/components/Share'
+import Geolocation from '@/components/Geolocation'
 
 Vue.use(Router)
 
@@ -22,6 +23,14 @@ const router = new Router({
       component: Share,
       meta: {
         title: 'Share'
+      }
+    },
+    {
+      path: '/geolocation',
+      name: 'Geolocation',
+      component: Geolocation,
+      meta: {
+        title: 'Geolocation'
       }
     }
   ]
