@@ -9,7 +9,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'iotbr - Home'
+      msg: 'Home'
     }
   }
 }

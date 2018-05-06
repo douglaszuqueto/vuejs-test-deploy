@@ -9,7 +9,7 @@ export default {
   name: 'Geolocation',
   data () {
     return {
-      msg: 'iotbr - Geolocation'
+      msg: 'Geolocation'
     }
   }
 }
