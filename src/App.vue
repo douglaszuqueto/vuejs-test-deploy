@@ -17,6 +17,7 @@
     </nav>
     <div class="container" style="margin-top: 25px">
       <router-view/>
+      <h4 class="text-center">V1</h4>
     </div>
   </div>
 </template>
