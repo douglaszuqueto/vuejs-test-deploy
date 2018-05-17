@@ -17,9 +17,12 @@
     </nav>
     <div class="container" style="margin-top: 25px">
       <router-view/>
-      <footer>
+      <footer class="text-center">
         <br><br>
-        <h4 class="text-center">V1</h4>
+        <div class="alert" :class="[online ? 'alert-success' : 'alert-danger']" role="alert">
+          <h3>Online: {{online}}</h3>
+          <h4>V1</h4>
+        </div>
       </footer>
     </div>
   </div>
@@ -27,7 +30,30 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data: () => {
+    return {
+      online: true
+    }
+  },
+  mounted () {
+    if (!window.navigator) {
+      this.online = false
+      return
+    }
+    this.online = Boolean(window.navigator.onLine)
+    window.addEventListener('offline', this.toggleNetworkStatus)
+    window.addEventListener('online', this.toggleNetworkStatus)
+  },
+  methods: {
+    toggleNetworkStatus ({ type }) {
+      this.online = type === 'online'
+    }
+  },
+  destroyed () {
+    window.removeEventListener('offline', this.toggleNetworkStatus)
+    window.removeEventListener('online', this.toggleNetworkStatus)
+  }
 }
 </script>
 
