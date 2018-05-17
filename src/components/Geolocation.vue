@@ -37,12 +37,12 @@ export default {
       }
       let self = this
       navigator.geolocation.getCurrentPosition((position) => {
-        const {lat, long} = position.coords
-        console.log(lat, long)
-        alert(`Lat: ${lat}, long: ${long}`)
+        const {latitude, longitude} = position.coords
+        console.log(latitude, longitude)
+        alert(`Lat: ${latitude}, long: ${longitude}`)
         self.gps.active = true
-        self.gps.lat = lat
-        self.gps.long = long
+        self.gps.lat = latitude
+        self.gps.long = longitude
       })
     },
     watchGPSPostion: () => {
