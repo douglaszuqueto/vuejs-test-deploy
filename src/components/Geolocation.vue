@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    onSuccess: (position) => {
+    onSuccess (position) {
       const {latitude, longitude} = position.coords
       console.log(latitude, longitude)
       alert(`Lat: ${latitude}, long: ${longitude}`)
@@ -39,7 +39,7 @@ export default {
       this.gps.lat = latitude
       this.gps.long = longitude
     },
-    getGPSPosition: () => {
+    getGPSPosition () {
       if (!navigator.geolocation) {
         return
       }
