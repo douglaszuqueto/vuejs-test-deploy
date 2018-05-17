@@ -43,8 +43,9 @@ export default {
       if (!navigator.geolocation) {
         return
       }
+      let self = this
       navigator.geolocation.getCurrentPosition(position => {
-        this.onSuccess(position)
+        self.onSuccess(position)
       })
     },
     watchGPSPostion: () => {
