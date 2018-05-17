@@ -37,16 +37,17 @@ export default {
       alert(`Lat: ${latitude}, long: ${longitude}`)
       this.gps.active = true
       this.gps.lat = latitude
-      this.gps.long = longitude
+      this.gps.lon = longitude
+    },
+    onError (e) {
+      console.log(e.message)
+      alert(`Erro: ${e.message}`)
     },
     getGPSPosition () {
       if (!navigator.geolocation) {
         return
       }
-      let self = this
-      navigator.geolocation.getCurrentPosition(position => {
-        self.onSuccess(position)
-      })
+      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError)
     },
     watchGPSPostion: () => {
     }
