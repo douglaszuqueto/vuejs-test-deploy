@@ -36,10 +36,6 @@ export default {
     }
   },
   mounted () {
-    if (!window.navigator) {
-      this.online = false
-      return
-    }
     this.online = this.getNetworkStatus()
     window.addEventListener('offline', this.toggleNetworkStatus)
     window.addEventListener('online', this.toggleNetworkStatus)
