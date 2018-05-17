@@ -31,19 +31,19 @@ export default {
     }
   },
   methods: {
+    onSuccess: (position) => {
+      const {latitude, longitude} = position.coords
+      console.log(latitude, longitude)
+      alert(`Lat: ${latitude}, long: ${longitude}`)
+      this.gps.active = true
+      this.gps.lat = latitude
+      this.gps.long = longitude
+    },
     getGPSPosition: () => {
       if (!navigator.geolocation) {
         return
       }
-      let self = this
-      navigator.geolocation.getCurrentPosition((position) => {
-        const {latitude, longitude} = position.coords
-        console.log(latitude, longitude)
-        alert(`Lat: ${latitude}, long: ${longitude}`)
-        self.gps.active = true
-        self.gps.lat = latitude
-        self.gps.long = longitude
-      })
+      navigator.geolocation.getCurrentPosition(position => this.onSuccess(position))
     },
     watchGPSPostion: () => {
     }
