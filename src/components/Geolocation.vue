@@ -34,14 +34,26 @@ export default {
     onSuccess (position) {
       const {latitude, longitude} = position.coords
       console.log(latitude, longitude)
-      alert(`Lat: ${latitude}, long: ${longitude}`)
       this.gps.active = true
       this.gps.lat = latitude
       this.gps.lon = longitude
     },
-    onError (e) {
-      console.log(e.message)
-      alert(`Erro: ${e.message}`)
+    onError (error) {
+      console.log(error)
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert('User denied the request for Geolocation.')
+          break
+        case error.POSITION_UNAVAILABLE:
+          alert('Location information is unavailable.')
+          break
+        case error.TIMEOUT:
+          alert('The request to get user location timed out.')
+          break
+        case error.UNKNOWN_ERROR:
+          alert('An unknown error occurred.')
+          break
+      }
     },
     getGPSPosition () {
       if (!navigator.geolocation) {
