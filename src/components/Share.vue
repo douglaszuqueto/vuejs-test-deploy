@@ -32,7 +32,7 @@ export default {
           url: 'https://developers.google.com/web'
         })
           .then(() => {
-            debug('[Web Share API] - Compartilhado')
+            debug('[Web Share API] - Compartilhado', true)
           })
           .catch((error) => {
             debug('[Web Share API] - Compartilhado')
