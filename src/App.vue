@@ -21,7 +21,6 @@
         <br><br>
         <div class="alert" :class="[online ? 'alert-success' : 'alert-danger']" role="alert">
           <h3>Online: {{online}}</h3>
-          <h4>V1</h4>
         </div>
       </footer>
     </div>
