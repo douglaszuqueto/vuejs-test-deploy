@@ -2,6 +2,7 @@
   <div class="text-center">
     <h1>{{ msg }}</h1>
     <button class="btn btn-success" @click="getGPSPosition">Obter localização</button>
+    <button class="btn btn-info" @click="watchGPSPostion">Assistir localização</button>
     <div class="alert alert-info" style="margin-top: 10px">
       <p><span class="font-weight-bold">GPS</span>: {{gps.active}}</p>
       <p><span class="font-weight-bold">Latitude</span>: {{gps.lat}}</p>
@@ -17,6 +18,7 @@ export default {
     return {
       msg: 'Geolocation',
       gps: {
+        id: 0,
         active: false,
         lon: '...',
         lat: '...'
@@ -61,8 +63,12 @@ export default {
       }
       navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError)
     },
-    watchGPSPostion: () => {
+    watchGPSPostion () {
+      this.gps.id = navigator.geolocation.watchPosition(this.onSuccess, this.onError)
     }
+  },
+  destroyed () {
+    navigator.geolocation.clearWatch(this.gps.id)
   }
 }
 </script>
