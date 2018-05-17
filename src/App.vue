@@ -40,13 +40,16 @@ export default {
       this.online = false
       return
     }
-    this.online = Boolean(window.navigator.onLine)
+    this.online = this.getNetworkStatus()
     window.addEventListener('offline', this.toggleNetworkStatus)
     window.addEventListener('online', this.toggleNetworkStatus)
   },
   methods: {
+    getNetworkStatus () {
+      return Boolean(window.navigator.onLine)
+    },
     toggleNetworkStatus ({ type }) {
-      this.online = type === 'online'
+      this.online = this.getNetworkStatus()
     }
   },
   destroyed () {
